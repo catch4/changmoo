@@ -9,7 +9,6 @@ int n, root;  // 노드갯수10000, 루트노드
 int cnt = 1;  // inorder 순회 시작노드(왼쪽-가운데-오른쪽)
 vector<int> tree[MAX + 1];
 vector<int> depth[MAX + 1];
-vector<int> parent(MAX + 1);
 vector<bool> hasParent(MAX + 1);
 // 이진트리에서 너비가 가장 넓은 레벨을 구하고, 1~레벨까지 모든 노드의 갯수를 구한다
 
