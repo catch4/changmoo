@@ -24,11 +24,10 @@ int main() {
     }
 
     for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= g[i].size(); ++j) {
+        for (int j = 0; j < g[i].size(); ++j) {
             for (int k = j + 1; k < g[i].size(); ++k) {
-                int c1 = g[i][j];  // 관계1
-                int c2 = g[i][k];  // 관계2
-                if (adj[c1][c2]) {
+                
+                if () {
                     int amount = g[i].size() + g[j].size() + g[k].size();
                     ans = min(ans, amount - 6);
                 }

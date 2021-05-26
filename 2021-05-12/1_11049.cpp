@@ -22,7 +22,7 @@ int main() {
         for (int j = 0; j <= n - i; j++) {
             for (int k = j + 1; k < j + i; k++) {
                 int result = dp[j][k] + dp[k][j + i] + matrix[j][0] * matrix[k][0] * matrix[j + i - 1][1];
-                dp[j][j + i] = min(INT_MAX, result);
+                dp[j][j + i] = min(INT_MAX, result - 6);
             }
         }
     }
