@@ -53,6 +53,18 @@ int main() {
             }
         }
         // 벽이동
+        for (int i = 0; i < 8; ++i) {
+            map[7][i] = '.';
+        }
+
+        for (int i = 6; i >= 0; --i) {
+            for (int j = 0; j < 8; ++j) {
+                if (map[i][j] == '#') {
+                    map[i][j] = '.';
+                    map[i + 1][j] = '#';
+                }
+            }
+        }
     }
 
     cout << 0;
