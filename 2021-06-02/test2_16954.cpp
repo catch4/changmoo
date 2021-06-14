@@ -12,7 +12,6 @@ struct Pos {
 };
 
 string map[8];
-bool visit[8][8];
 
 // 캐릭터 먼저 이동함
 int main() {
@@ -26,11 +25,8 @@ int main() {
 
     queue<Pos> q;
     q.push({7, 0, 0});  // map[7][0] 시작
-    visit[7][0] = true;
 
     while (!q.empty()) {
-        memset(visit, false, sizeof(visit));
-
         for (int i = 0; i < q.size(); ++i) {
             Pos now = q.front();
             q.pop();
@@ -46,9 +42,8 @@ int main() {
                 npos.c = now.c + dc[i];
                 npos.time = now.time + 1;
                 if (npos.r < 0 || npos.c < 0 || npos.r >= 8 || npos.c >= 8) continue;
-                if (visit[npos.r][npos.c] || map[npos.r][npos.c] == '#') continue;
+                if (map[npos.r][npos.c] == '#') continue;
 
-                visit[npos.r][npos.c] = true;
                 q.push(npos);
             }
         }
