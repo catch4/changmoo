@@ -11,11 +11,19 @@ int calc(int sheep, int idx) {  // 100, 3 시작
     if (idx == 1) return sheep;
 
     if (tree[idx] < 0) {  // 늑대인 경우
-        if (sheep < -tree[idx]) return 0;
-        return calc(sheep + tree[idx], parent[idx]);
+        if (sheep <= -tree[idx]) {
+            tree[idx] += sheep;
+            return 0;
+        }
+
+        int wolf = tree[idx];
+        tree[idx] = 0;
+        return calc(sheep + wolf, parent[idx]);
     }
 
-    return calc(sheep, parent[idx]);
+    int sheep2 = tree[idx];
+    tree[idx] = 0;
+    return calc(sheep + sheep2, parent[idx]);
 }
 
 int main() {
@@ -38,7 +46,7 @@ int main() {
     long long sum = 0;
     for (int i = 2; i <= n; ++i) {
         if (tree[i] > 0) {  // 양이면 1번섬 까지 이동해서 남은값 더함
-            sum += calc(tree[i], parent[i]);
+            sum += calc(0, i);
         }
     }
 
